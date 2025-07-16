@@ -5,6 +5,7 @@ import 'package:marshalassignment/profile_page.dart';
 import 'package:marshalassignment/recipes.dart';
 import 'package:provider/provider.dart';
 
+import 'batteryoverlay.dart';
 import 'providers/profileprovider.dart';
 
 class homePage extends StatefulWidget {
@@ -17,6 +18,7 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends State<homePage> {
   int _selectedIndex = 0;
+  bool _showBatteryOverlay = true; // Toggle switch
 
   late final List<Widget> _pages;
 
@@ -32,7 +34,6 @@ class _homePageState extends State<homePage> {
       DeviceInfoScreen(),
       const Center(child: Text('Gallery')),
       RecipeListPage(),
-
     ];
   }
 
@@ -40,39 +41,40 @@ class _homePageState extends State<homePage> {
     setState(() {
       _selectedIndex = index;
     });
-    Navigator.pop(context); // close drawer
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     final profileProvider = Provider.of<ProfileProvider>(context);
     final profile = profileProvider.profile;
-    return Scaffold(
-      appBar: AppBar(
 
-      ),
+    return Scaffold(
+      appBar: AppBar(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             GestureDetector(
-              onTap: () => _selectPage(1), // Profile page index
+              onTap: () => _selectPage(1),
               child: DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                ),
+                decoration: const BoxDecoration(color: Colors.blue),
                 child: Text(
                   "${profile?['firstName']} ${profile?['lastName']}",
                   style: const TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
-            // BatteryOverlay(),
-            // ListTile(
-            //   leading: const Icon(Icons.person),
-            //   title: const Text('Profile'),
-            //   onTap: () => _selectPage(1),
-            // ),
+            SwitchListTile(
+              value: _showBatteryOverlay,
+              title: const Text("Show Battery Overlay"),
+              secondary: const Icon(Icons.battery_charging_full),
+              onChanged: (value) {
+                setState(() {
+                  _showBatteryOverlay = value;
+                });
+              },
+            ),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('Device Info'),
@@ -114,9 +116,7 @@ class _homePageState extends State<homePage> {
                 if (confirm == true) {
                   final provider = Provider.of<ProfileProvider>(context, listen: false);
                   await provider.logout();
-
                   Navigator.pop(context);
-
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (_) => const loginPage()),
@@ -128,7 +128,14 @@ class _homePageState extends State<homePage> {
           ],
         ),
       ),
-      body: _pages[_selectedIndex],
+      body: Stack(
+        children: [
+
+          _pages[_selectedIndex],
+          BatteryOverlay(isVisible: _showBatteryOverlay),
+
+        ],
+      ),
     );
   }
 }
