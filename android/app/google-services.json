@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "902580118467",
+    "project_id": "marshal-3be50",
+    "storage_bucket": "marshal-3be50.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902580118467:android:243c99671dd8767c29d376",
+        "android_client_info": {
+          "package_name": "com.example.marshalassignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy-Gha6OSVjPkWD86GOjPLV53z0MOdjd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
