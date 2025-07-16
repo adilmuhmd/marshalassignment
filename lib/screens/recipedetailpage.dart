@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'editrecipepage.dart';
-import 'models/recipemodel.dart';
-import 'providers/recipeprovider.dart';
+import '../models/recipemodel.dart';
+import '../providers/recipeprovider.dart';
 
 class RecipeDetailPage extends StatelessWidget {
   final Recipe recipe;

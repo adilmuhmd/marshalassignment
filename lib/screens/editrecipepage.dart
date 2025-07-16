@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'models/recipemodel.dart';
-import 'providers/recipeprovider.dart';
+import '../models/recipemodel.dart';
+import '../providers/recipeprovider.dart';
 
 class EditRecipePage extends StatefulWidget {
   final Recipe recipe;

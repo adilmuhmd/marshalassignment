@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:marshalassignment/deviceinfopage.dart';
-import 'package:marshalassignment/login_page.dart';
-import 'package:marshalassignment/profile_page.dart';
-import 'package:marshalassignment/recipes.dart';
+import 'package:marshalassignment/screens/deviceinfopage.dart';
+import 'package:marshalassignment/screens/login_page.dart';
+import 'package:marshalassignment/screens/profile_page.dart';
+import 'package:marshalassignment/screens/recipes.dart';
 import 'package:provider/provider.dart';
 
-import 'batteryoverlay.dart';
-import 'providers/profileprovider.dart';
+import '../utils/batteryoverlay.dart';
+import '../providers/profileprovider.dart';
 
 class homePage extends StatefulWidget {
   final Map<String, dynamic> userData;

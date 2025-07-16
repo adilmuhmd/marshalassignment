@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marshalassignment/recipedetailpage.dart';
+import 'package:marshalassignment/screens/recipedetailpage.dart';
 import 'package:provider/provider.dart';
-import '../providers/recipeprovider.dart';
+import '../../providers/recipeprovider.dart';
 
 class RecipeListPage extends StatefulWidget {
   @override

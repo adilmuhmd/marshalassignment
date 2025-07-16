@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marshalassignment/homescreen.dart';
-import 'package:marshalassignment/login_page.dart';
+import 'package:marshalassignment/screens/homescreen.dart';
+import 'package:marshalassignment/screens/login_page.dart';
 import 'package:marshalassignment/providers/profileprovider.dart';
 import 'package:marshalassignment/providers/recipeprovider.dart';
-import 'package:marshalassignment/recipes.dart';
+import 'package:marshalassignment/screens/recipes.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
